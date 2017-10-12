@@ -1,7 +1,7 @@
 {
-  "name": "challenge-1",
+  "name": "vue-acronyms",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "demo/index.js",
   "author": "Tristan Hamel",
   "license": "MIT",
   "dependencies": {
