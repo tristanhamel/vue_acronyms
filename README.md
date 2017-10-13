@@ -69,4 +69,4 @@ The component accepts an optional options attribute:
 </th-acronyms-tooltip>
 
 ````
-The tooltip can be completely styled using the following classes: th-acronyms, th-tooltip, th-tooltip-container
+The tooltip can be completely styled using the following classes: ``th-acronyms``, ``th-tooltip``, ``th-tooltip-container``
