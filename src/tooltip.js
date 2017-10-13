@@ -4,17 +4,17 @@ import './tooltip.scss';
 
 const tooltip = Vue.component('th-tooltip', {
   template: `
-    <div class="v-tooltip"
+    <div class="th-tooltip"
          @mouseleave="onMouseLeave">
     
-      <div class="v-tooltip-container"
+      <div class="th-tooltip-container"
            @click.stop=""
            v-html="tooltipContent"
            v-if="show">
       </div>
       <div @click="onClick"
            @mouseenter="onMouseEnter"
-           class="v-acronyms">
+           class="th-acronyms">
         {{tooltipTitle}}
       </div>
     </div>`,

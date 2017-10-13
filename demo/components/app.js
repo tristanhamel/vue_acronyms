@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 import acronyms from '../../src/acronyms';
-import acronymsTooltip from '../../src/acronyms-tooltip';
+import thAcronymsTooltip from '../../src/acronyms-tooltip';
 
 import './components.scss';
 
@@ -39,9 +39,9 @@ export const app = Vue.component('app', {
           Some text full of acronyms with disambiguation in tooltip (shows on hover)
         </div>
         <div class="panel-body">
-          <acronyms-tooltip :acronyms="acronyms2">
+          <th-acronyms-tooltip :acronyms="acronyms2">
             It is important to remember though that sometimes a TFSA is a better place for you be saving than your RRSP.  Having said that, if you have enough dough to contribute to both a TFSA and your RRSP, you can contribute to your RRSP BUT hold off on using it as a tax deduction until future, more income-generating years (use Schedule 7 for this). <a> Click me buddy! <span>Even more stuff TFSA</span></a>
-          </acronyms-tooltip>
+          </th-acronyms-tooltip>
         </div>
       </div>
        
@@ -50,7 +50,7 @@ export const app = Vue.component('app', {
           Some text full of acronyms with disambiguation in tooltip (shows on click)
         </div>
         <div class="panel-body">
-          <acronyms-tooltip :acronyms="acronyms2" :options="{showOnMouseEnter: true}">
+          <th-acronyms-tooltip :acronyms="acronyms2" :options="{showOnMouseEnter: true}">
             <p>
               It is important to remember though that sometimes a TFSA is a better place for you be saving than your RRSP.  Having said that, if you have enough dough to contribute to both a TFSA and your RRSP, you can contribute to your RRSP BUT hold off on using it as a tax deduction until future, more income-generating years (use Schedule 7 for this). 
             </p>
@@ -63,14 +63,14 @@ export const app = Vue.component('app', {
                 <span>children: TFSA</span>
               </p>
             </b>
-          </acronyms-tooltip>
+          </th-acronyms-tooltip>
         </div>
       </div>
     </div>
    `,
   methods: {},
   components: {
-    acronymsTooltip
+    thAcronymsTooltip
   }
 });
 

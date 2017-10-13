@@ -41,7 +41,7 @@ function makeTree(nodes, createElement, acronymsMap, options) {
     });
 }
 
-const acronymsTooltip = Vue.component('acronyms-tooltip', {
+const thAcronymsTooltip = Vue.component('th-acronyms-tooltip', {
   props: {
     acronyms: Object,
     options: Object
@@ -55,4 +55,4 @@ const acronymsTooltip = Vue.component('acronyms-tooltip', {
   }
 });
 
-export default acronymsTooltip;
+export default thAcronymsTooltip;
