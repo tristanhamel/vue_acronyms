@@ -21,8 +21,8 @@ Add it as an attribute in your template and pass it an object containing all the
 <script>
 ...
     const myMap = {
-        lol: laugh(ing) out loud,
-        2day: today
+        lol: 'laugh(ing) out loud',
+        '2day': 'today'
     }
 ...
 </script>
@@ -50,8 +50,8 @@ Import acronymsTooltip and add it to your vue app components. Use in your templa
 <script>
 ...
     const myMap = {
-        lol: <a href="...>laugh(ing) out loud</a>,
-        2day: <a href="...>today</a>
+        lol: '<a href="...>laugh(ing) out loud</a>',
+        '2day': '<a href="...>today</a>'
     }
 ...
 </script>
