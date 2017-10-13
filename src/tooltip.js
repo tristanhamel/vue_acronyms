@@ -2,20 +2,18 @@ import Vue from 'vue';
 
 import './tooltip.scss';
 
-function clickHandler() {
-  document.removeEventListener('click', clickHandler);
-}
-
-const tooltip = Vue.component('tooltip', {
+const tooltip = Vue.component('th-tooltip', {
   template: `
-    <div class="v-tooltip">
+    <div class="v-tooltip"
+         @mouseleave="onMouseLeave">
     
       <div class="v-tooltip-container"
            @click.stop=""
            v-html="tooltipContent"
            v-if="show">
       </div>
-      <div @click="toggle"
+      <div @click="onClick"
+           @mouseenter="onMouseEnter"
            class="v-acronyms">
         {{tooltipTitle}}
       </div>
@@ -24,16 +22,62 @@ const tooltip = Vue.component('tooltip', {
     show: false
   }),
   props: {
-    tooltipTitle: String,
-    tooltipContent: String
+    tooltipTitle: {
+      type: String,
+      required: true
+    },
+    tooltipContent: {
+      type: String,
+      required: true
+    },
+    options: {
+      type: Object,
+      default: () => ({
+        showOnMouseEnter: false,
+        hideOnMouseLeave: false
+      })
+    }
   },
   methods: {
+    onClick: function () {
+      if(this.computedOptions.showOnMouseEnter || this.show) {
+        return;
+      }
+      this.toggle();
+    },
+    onMouseEnter: function() {
+      if(!this.computedOptions.showOnMouseEnter || this.show) {
+        return;
+      }
+      this.toggle();
+    },
+    onMouseLeave: function() {
+      if(!this.computedOptions.hideOnMouseLeave || !this.show) {
+        return;
+      }
+      this.show = false;
+    },
     toggle: function () {
-      if (!this.show) this.bind();
-      this.show = !this.show;
+      this.show = true;
+      if(!this.options.hideOnMouseLeave) this.bind();
     },
     bind: function () {
-      document.addEventListener('click', clickHandler);
+      setTimeout(() => document.addEventListener('click', this.unbind), 0);
+    },
+    unbind: function () {
+      document.removeEventListener('click', this.unbind);
+      this.show = false;
+    }
+  },
+  computed: {
+    computedOptions: function() {
+      return Object.assign(
+        {},
+        this.options,
+        {hideOnMouseLeave: this.options.hasOwnProperty('hideOnMouseLeave') ?
+          this.options.hideOnMouseLeave : this.options.showOnMouseEnter
+        }
+      );
     }
   }
 });
